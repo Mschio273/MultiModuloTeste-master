@@ -1,0 +1,8 @@
+rootProject.name = 'MultiModuloTeste'
+include 'controller'
+include 'service'
+include 'repository'
+include 'model'
+include 'util'
+include 'exception'
+
