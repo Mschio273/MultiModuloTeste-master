@@ -34,10 +34,11 @@ public class UserController {
     @ResponseStatus(OK)
     @ApiOperation(value = "Retorna uma lista de usuário")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "busca realizada com sucesso", response = ControllerResponseDTO[].class),
-            @ApiResponse(code = 400, message = "", response = StandardError.class),
-            @ApiResponse(code = 500, message = "", response = StandardError.class)
+            @ApiResponse(code = 200, message = "Busca realizada com sucesso", response = ControllerResponseDTO[].class),
+            @ApiResponse(code = 400, message = "Não foi possivel realizar a chamada", response = StandardError.class),
+            @ApiResponse(code = 500, message = "Erro server-side", response = StandardError.class)
     })
+
     public List<ControllerResponseDTO> findAll() {
         return userService.findAll().stream()
                 .map(Mapper.toControllerResponseUserDTO)
@@ -76,6 +77,6 @@ public class UserController {
         userService.deleteById(id);
     }
 
-    //TODO @path
+    //TODO @pacth
     //TODO delete deletando lista de user
 }

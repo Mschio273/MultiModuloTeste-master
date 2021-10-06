@@ -16,13 +16,20 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 public class Mapper {
 
-    private Mapper() {}
+    private static Mapper mapper = getInstance();
+
+    private Mapper() {
+    }
+
+    public static Mapper getInstance() {
+        return mapper;
+    }
 
     public static final Function<ControllerRequestDTO, ServiceRequestDTO> toServiceRequestDTO =
             requestUser -> Optional.ofNullable(ServiceRequestDTO.builder()
                     .name(requestUser.getName())
                     .cpf(requestUser.getCpf())
-                    .login(requestUser.getEmail())
+                    .email(requestUser.getEmail())
                     .password(requestUser.getPassword())
                     .build())
                     .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, DADOS_INVALIDOS));
@@ -39,7 +46,7 @@ public class Mapper {
             request -> Optional.ofNullable(User.builder()
                             .name(request.getName())
                             .cpf(request.getCpf())
-                            .login(request.getLogin())
+                            .email(request.getEmail())
                             .password(request.getPassword())
                             .build())
                     .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, DADOS_INVALIDOS));
@@ -56,7 +63,7 @@ public class Mapper {
             (id, request) -> Optional.ofNullable(User.builder()
                             .id(id)
                             .name(request.getName())
-                            .login(request.getLogin())
+                            .email(request.getEmail())
                             .password(request.getPassword())
                             .cpf(request.getCpf())
                             .build())

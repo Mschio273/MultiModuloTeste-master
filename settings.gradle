@@ -5,4 +5,5 @@ include 'repository'
 include 'model'
 include 'util'
 include 'exception'
+include 'cep'
 

@@ -2,14 +2,14 @@ package br.com.estudos.multimodulo.service;
 
 import br.com.estudos.multimodulo.dto.ServiceRequestDTO;
 import br.com.estudos.multimodulo.dto.ServiceResponseDTO;
-import br.com.estudos.multimodulo.repository.UserRepository;
+import br.com.estudos.multimodulo.model.User;
+import br.com.estudos.multimodulo.service.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,17 +23,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        classes = {UserRepository.class, UserFacadeImpl.class})
 @Sql(value = "/banco.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @TestPropertySource("classpath:application-test.properties")
 @ExtendWith(MockitoExtension.class)
-@ContextConfiguration(classes = {UserFacadeImpl.class, UserRepository.class})
+//@ContextConfiguration(classes = {UserFacadeImpl.class, UserRepository.class})
 class UserServiceTest {
 
     private ServiceRequestDTO requestDTO;
-    private br.com.estudos.multimodulo.model.User user;
+    private User user;
 
-    @Mock
     UserRepository userRepository;
 
     @InjectMocks
@@ -45,14 +45,14 @@ class UserServiceTest {
                 .id(1L)
                 .name("Matheus")
                 .cpf("029.550.330-06")
-                .login("matheus")
+                .email("matheus")
                 .password("123")
                 .build();
 
         this.requestDTO = ServiceRequestDTO.builder()
                 .name(this.user.getName())
                 .cpf(this.user.getCpf())
-                .login(this.user.getLogin())
+                .email(this.user.getEmail())
                 .password(this.user.getPassword())
                 .build();
     }

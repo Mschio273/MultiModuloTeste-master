@@ -25,8 +25,8 @@ public class User {
     @Column(name = "cpf", nullable = false)
     private String cpf;
 
-    @Column(name = "login", nullable = false)
-    private String login;
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @Column(name = "password", nullable = false)
     private String password;

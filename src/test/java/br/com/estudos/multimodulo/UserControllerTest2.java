@@ -45,7 +45,7 @@ class UserControllerTest2 {
                 .id(1L)
                 .name("Matheus")
                 .cpf("029.550.330-06")
-                .login("matheus")
+                .email("matheus")
                 .password("123")
                 .build();
 
@@ -58,7 +58,7 @@ class UserControllerTest2 {
         this.requestDTO = ServiceRequestDTO.builder()
                 .name(this.user.getName())
                 .cpf(this.user.getCpf())
-                .login(this.user.getLogin())
+                .email(this.user.getEmail())
                 .password(this.user.getPassword())
                 .build();
     }

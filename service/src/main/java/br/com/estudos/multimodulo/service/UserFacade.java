@@ -5,7 +5,6 @@ import br.com.estudos.multimodulo.dto.ServiceResponseDTO;
 
 import java.util.List;
 
-//Princípio da Inversão de Dependências - SOLID
 public interface UserFacade {
 
     List<ServiceResponseDTO> findAll();

@@ -18,14 +18,15 @@ import javax.validation.constraints.Size;
 public class ControllerResponseDTO {
 
     @ApiModelProperty(value = "id", example = "1")
-
     @NotBlank
     @NotNull
     @Positive
     private Long id;
+    @ApiModelProperty(value = "name", example = "Matheus")
     @NotBlank
     @NotNull
     private String name;
+    @ApiModelProperty(value = "cpf", example = "123.456.789-00")
     @NotBlank
     @NotNull
     @Size(min = 11, max = 14)
