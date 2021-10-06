@@ -1,7 +1,7 @@
 package br.com.estudos.multimodulo.service;
 
-import br.com.estudos.multimodulo.dto.ServiceRequestDTO;
-import br.com.estudos.multimodulo.dto.ServiceResponseDTO;
+import br.com.estudos.multimodulo.dto.UserDto;
+import br.com.estudos.multimodulo.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -19,27 +19,27 @@ public class UserService {
 
     final UserFacadeImpl userFacade;
 
-    public List<ServiceResponseDTO> findAll() {
+    public List<UserDto> findAll() {
         return Optional.of(
                         userFacade.findAll())
                 .orElseThrow(() -> new ResponseStatusException(NO_CONTENT, BASE_DE_DADOS_VAZIA));
     }
 
-    public List<ServiceResponseDTO> findById(Long id) {
+    public UserDto findById(Long id) {
         return Optional.of(
                         userFacade.findById(id))
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, USUARIO_NAO_ENCONTRADO));
     }
 
-    public ServiceResponseDTO save(ServiceRequestDTO requestDTO) {
+    public UserDto save(User user) {
         return Optional.of(
-                        userFacade.save(requestDTO))
+                        userFacade.save(user))
                 .orElseThrow(() -> new ResponseStatusException(SERVICE_UNAVAILABLE, SERVIDOR_INDISPONIVEL));
     }
 
-    public ServiceResponseDTO update(Long id, ServiceRequestDTO requestDTO) {
+    public UserDto update(Long id, User user) {
         return Optional.of(
-                        userFacade.update(id, requestDTO))
+                        userFacade.update(id, user))
                 .orElseThrow(() -> new ResponseStatusException(SERVICE_UNAVAILABLE, SERVIDOR_INDISPONIVEL));
     }
 

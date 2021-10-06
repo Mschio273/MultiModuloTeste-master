@@ -1,19 +1,19 @@
 package br.com.estudos.multimodulo.service;
 
-import br.com.estudos.multimodulo.dto.ServiceRequestDTO;
-import br.com.estudos.multimodulo.dto.ServiceResponseDTO;
+import br.com.estudos.multimodulo.dto.UserDto;
+import br.com.estudos.multimodulo.model.User;
 
 import java.util.List;
 
 public interface UserFacade {
 
-    List<ServiceResponseDTO> findAll();
+    List<UserDto> findAll();
 
-    List<ServiceResponseDTO> findById(Long id);
+    UserDto findById(Long id);
 
-    ServiceResponseDTO save(ServiceRequestDTO requestDTO);
+    UserDto save(User user);
 
-    ServiceResponseDTO update(Long id, ServiceRequestDTO requestDTO);
+    UserDto update(Long id, User user);
 
     void deleteById(Long id);
 }

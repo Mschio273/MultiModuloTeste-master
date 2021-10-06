@@ -12,10 +12,13 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ControllerRequestDTO {
-// TODO @NOTBLANK MINSIZE MAXSIZE SIZE
-// TODO Anotaçoes swagger
+public class UserDto {
 
+    @ApiModelProperty(value = "id", example = "1")
+    @NotBlank
+    @NotNull
+    @Positive
+    private Long id;
     @ApiModelProperty(value = "name", example = "Matheus")
     @NotBlank
     @NotNull
