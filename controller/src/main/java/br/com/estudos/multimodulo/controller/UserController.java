@@ -3,7 +3,7 @@ package br.com.estudos.multimodulo.controller;
 import br.com.estudos.multimodulo.dto.UserDto;
 import br.com.estudos.multimodulo.exception.StandardError;
 import br.com.estudos.multimodulo.model.User;
-import br.com.estudos.multimodulo.service.UserService;
+import br.com.estudos.multimodulo.service.UserFacade;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -26,7 +26,7 @@ public class UserController {
 
     //TODO chamar facade
     //TODO busca por nome e por cpf
-    private final UserService userService;
+    private final UserFacade userFacade;
 
     @ApiOperation(value = "Retorna uma lista de usuário")
     @ApiResponses({
@@ -38,37 +38,37 @@ public class UserController {
     @GetMapping
     @ResponseStatus(OK)
     public List<UserDto> findAll() {
-        return userService.findAll();
+        return userFacade.findAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(OK)
     @ApiOperation(value = "Retorna um usuário")
     public UserDto findById(@PathVariable Long id) {
-        return userService.findById(id);
+        return userFacade.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(CREATED)
     @ApiOperation(value = "Salva um usuário")
     public UserDto save(@Valid @RequestBody User user) {
-        return userService.save(user);
+        return userFacade.save(user);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(OK)
     @ApiOperation(value = "Atualiza um usuário")
     public UserDto update(@PathVariable Long id,@Valid @RequestBody User user) {
-        return userService.update(id, user);
+        return userFacade.update(id, user);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(OK)
     @ApiOperation(value = "Deleta um usuário")
     public void delete(@PathVariable Long id) {
-        userService.deleteById(id);
+        userFacade.deleteById(id);
     }
 
     //TODO @pacth
-    //TODO delete deletando lista de user
+    //TODO delete deletando lista de user(delete all users, delete user by attribute[name, cpf, email])
 }
