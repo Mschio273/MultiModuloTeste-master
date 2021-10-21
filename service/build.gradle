@@ -1,8 +1,6 @@
 dependencies {
-    implementation project(':repository')
-    implementation project(':model')
-    implementation project(':util')
     implementation project(':exception')
+    implementation project(':cep')
     implementation 'org.postgresql:postgresql:42.2.23'
 
 }

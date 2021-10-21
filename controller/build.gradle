@@ -1,8 +1,4 @@
 dependencies {
     implementation project(':service')
-    implementation project(':model')
-    implementation project(':repository')
-    implementation project(':util')
     implementation project(':exception')
-    testImplementation project(':util')
 }
