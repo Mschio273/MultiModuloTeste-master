@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-10-20T11:16:26-0300",
+    date = "2021-10-26T13:39:29-0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.1.1.jar, environment: Java 11.0.10 (Oracle Corporation)"
 )
 @Component
@@ -29,6 +29,7 @@ public class ServiceMapperImpl implements ServiceMapper {
         userEntity.cpf( userServiceRequest.getCpf() );
         userEntity.email( userServiceRequest.getEmail() );
         userEntity.password( userServiceRequest.getPassword() );
+        userEntity.cep( userServiceRequest.getCep() );
 
         return userEntity.build();
     }

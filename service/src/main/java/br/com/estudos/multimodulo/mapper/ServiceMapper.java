@@ -1,6 +1,5 @@
 package br.com.estudos.multimodulo.mapper;
 
-import br.com.estudos.multimodulo.entity.Cep;
 import br.com.estudos.multimodulo.entity.UserEntity;
 import br.com.estudos.multimodulo.model.UserServiceRequest;
 import br.com.estudos.multimodulo.model.UserServiceResponse;
@@ -10,9 +9,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface ServiceMapper {
 
-    static UserEntity toUserEntityCep(UserServiceRequest userServiceRequest, Cep cep) {
-        return Mappers.getMapper(ServiceMapper.class).mapFromEntityToRequest(userServiceRequest);
-    }
+//    static UserEntity toUserEntityCep(UserServiceRequest userServiceRequest, Cep cep) {
+//        return Mappers.getMapper(ServiceMapper.class).mapFromEntityToRequest(userServiceRequest);
+//    }
 
     static UserEntity toUserEntityService(UserServiceRequest userServiceRequest) {
         return Mappers.getMapper(ServiceMapper.class).mapFromEntityToRequest(userServiceRequest);
@@ -28,6 +27,6 @@ public interface ServiceMapper {
 
 //    @AfterMapping
 //    default void setCep(Cep cep, @MappingTarget UserEntity.UserEntityBuilder userEntityBuilder) {
-//        userEntityBuilder.endereco(cep);
+//        userEntityBuilder.cep(cep);
 //    }
 }

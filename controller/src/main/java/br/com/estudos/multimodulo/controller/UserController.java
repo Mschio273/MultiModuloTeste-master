@@ -3,7 +3,6 @@ package br.com.estudos.multimodulo.controller;
 import br.com.estudos.multimodulo.exception.StandardError;
 import br.com.estudos.multimodulo.model.UserControllerRequest;
 import br.com.estudos.multimodulo.model.UserControllerResponse;
-import br.com.estudos.multimodulo.swagger.annotations.UserGetAllCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,7 +28,11 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(OK)
-    @UserGetAllCode
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Busca realizada com sucesso", response = UserControllerResponse[].class),
+            @ApiResponse(code = 400, message = "Não foi possivel realizar a chamada", response = StandardError.class),
+            @ApiResponse(code = 500, message = "Erro server-side", response = StandardError.class)
+    })
     public List<UserControllerResponse> findAll() {
         return controllerFacade.findAll();
     }

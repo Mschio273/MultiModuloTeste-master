@@ -43,5 +43,6 @@ public class UserEntity {
 //    @NotBlank
 //    @NotNull
     private String password;
+    private String cep;
 
 }

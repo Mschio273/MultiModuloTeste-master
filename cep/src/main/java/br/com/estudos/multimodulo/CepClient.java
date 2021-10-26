@@ -11,4 +11,5 @@ public class CepClient {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+
 }

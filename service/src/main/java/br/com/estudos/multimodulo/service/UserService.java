@@ -26,30 +26,45 @@ public class UserService {
 
     public List<UserServiceResponse> findAll() {
         return userRepository.findAll().stream()
-                .map(ServiceMapper::toUserServiceResponse)
+                .map(x -> new UserServiceResponse(x.getId(), x.getName(), x.getCpf(), findByCep(x.getCep())))
                 .collect(Collectors.toList());
     }
 
     public UserServiceResponse findById(Long id) {
         UserEntity userId = userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ID_NAO_ENCONTRADO));
-        return toUserServiceResponse(userId);
+        Cep byCep = findByCep(userId.getCep());
+        return UserServiceResponse.builder()
+                .endereco(byCep)
+                .id(userId.getId())
+                .cpf(userId.getCpf())
+                .name(userId.getName())
+                .build();
     }
 
     public UserServiceResponse save(UserServiceRequest user) {
         Cep byCep = findByCep(user.getCep());
-        UserEntity userEntity = toUserEntityCep(user, byCep);
+        UserEntity userEntity = toUserEntityService(user);
         UserEntity userSave = userRepository.save(userEntity);
-        return toUserServiceResponse(userSave);
+        return UserServiceResponse.builder()
+                .endereco(byCep)
+                .id(userSave.getId())
+                .cpf(userSave.getCpf())
+                .name(userSave.getName())
+                .build();
     }
 
     public UserServiceResponse update(Long id, UserServiceRequest user) {
         UserEntity userId = userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ID_NAO_ENCONTRADO));
         user.setId(userId.getId());
-        UserEntity userEntity = toUserEntityService(user);
-        UserEntity userSave = userRepository.save(userEntity);
-        return toUserServiceResponse(userSave);
+        Cep byCep = findByCep(user.getCep());
+        return UserServiceResponse.builder()
+                .endereco(byCep)
+                .id(user.getId())
+                .cpf(user.getCpf())
+                .name(user.getName())
+                .build();
     }
 
     public void deleteById(Long id) {

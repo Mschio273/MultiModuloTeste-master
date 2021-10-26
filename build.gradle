@@ -8,7 +8,6 @@ plugins {
 
 mainClassName = "br.com.estudos.multimodulo.MultiModuloTesteApplication"
 
-
 dependencies {
     implementation project (':controller')
 }
