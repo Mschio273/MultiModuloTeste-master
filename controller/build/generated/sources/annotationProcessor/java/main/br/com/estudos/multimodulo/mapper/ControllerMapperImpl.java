@@ -3,15 +3,15 @@ package br.com.estudos.multimodulo.mapper;
 import br.com.estudos.multimodulo.model.UserControllerRequest;
 import br.com.estudos.multimodulo.model.UserControllerResponse;
 import br.com.estudos.multimodulo.model.UserControllerResponse.UserControllerResponseBuilder;
-import br.com.estudos.multimodulo.model.UserServiceRequest;
-import br.com.estudos.multimodulo.model.UserServiceRequest.UserServiceRequestBuilder;
-import br.com.estudos.multimodulo.model.UserServiceResponse;
+import br.com.estudos.multimodulo.model.user.UserServiceRequest;
+import br.com.estudos.multimodulo.model.user.UserServiceRequest.UserServiceRequestBuilder;
+import br.com.estudos.multimodulo.model.user.UserServiceResponse;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-10-26T13:19:05-0300",
+    date = "2021-11-08T10:33:21-0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.1.1.jar, environment: Java 11.0.10 (Oracle Corporation)"
 )
 @Component

@@ -22,9 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
 @AllArgsConstructor
 public class UserController {
 
-    //TODO chamar facade
-    //TODO busca por nome e por cpf
-    private final ControllerFacade controllerFacade;
+    private final UserControllerFacade controllerFacade;
 
     @GetMapping
     @ResponseStatus(OK)
@@ -89,6 +87,4 @@ public class UserController {
         controllerFacade.delete(id);
     }
 
-    //TODO @pacth
-    //TODO delete deletando lista de user(delete all users, delete user by attribute[name, cpf, email])
 }

@@ -1,7 +1,7 @@
 //package br.com.estudos.multimodulo.controller;
 //
 //import br.com.estudos.multimodulo.service.UserFacadeImpl;
-//import br.com.estudos.multimodulo.service.UserService;
+//import br.com.estudos.multimodulo.service.user.UserService;
 //import br.com.estudos.multimodulo.service.repository.UserRepository;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import org.junit.jupiter.api.BeforeEach;

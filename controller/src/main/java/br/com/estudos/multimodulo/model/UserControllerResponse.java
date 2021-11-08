@@ -1,6 +1,6 @@
 package br.com.estudos.multimodulo.model;
 
-import br.com.estudos.multimodulo.entity.Cep;
+import br.com.estudos.multimodulo.entity.CepEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,5 +15,5 @@ public class UserControllerResponse {
     private Long id;
     private String name;
     private String cpf;
-    private Cep endereco;
+    private CepEntity endereco;
 }

@@ -2,8 +2,8 @@ package br.com.estudos.multimodulo.mapper;
 
 import br.com.estudos.multimodulo.model.UserControllerRequest;
 import br.com.estudos.multimodulo.model.UserControllerResponse;
-import br.com.estudos.multimodulo.model.UserServiceRequest;
-import br.com.estudos.multimodulo.model.UserServiceResponse;
+import br.com.estudos.multimodulo.model.user.UserServiceRequest;
+import br.com.estudos.multimodulo.model.user.UserServiceResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

@@ -1,15 +1,22 @@
 package br.com.estudos.multimodulo;
 
-import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@NoArgsConstructor
 public class CepClient {
-
-    public RestTemplate getRestTemplate() {
+    public static RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
-
+//    private static RestTemplate restTemplate;
+//
+//    private CepClient() {
+//    }
+//
+//    public static  RestTemplate getRestTemplate() {
+//        if (restTemplate == null) {
+//            restTemplate = new RestTemplate();
+//        }
+//        return restTemplate;
+//    }
 }

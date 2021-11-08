@@ -1,12 +1,23 @@
-package br.com.estudos.multimodulo.exception;
-
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-@RestControllerAdvice
-public class RestExceptionHandler {
-
-    // TODO UnsupportedTemporalTypeException
-
+//package br.com.estudos.multimodulo.exception;
+//
+//import org.springframework.http.converter.HttpMessageNotReadableException;
+//import org.springframework.web.bind.annotation.ExceptionHandler;
+//import org.springframework.web.bind.annotation.ResponseStatus;
+//import org.springframework.web.bind.annotation.RestControllerAdvice;
+//import org.springframework.web.server.ResponseStatusException;
+//
+//import java.io.IOException;
+//import java.time.temporal.UnsupportedTemporalTypeException;
+//
+//import static br.com.estudos.multimodulo.exception.ErrorConstants.*;
+//import static org.springframework.http.HttpStatus.BAD_REQUEST;
+//import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+//
+//@RestControllerAdvice
+//public class RestExceptionHandler {
+//
+//    // TODO UnsupportedTemporalTypeException
+//
 //    @ExceptionHandler(NotFoundException.class)
 //    public StandardError handleResponseStatusException(ResponseStatusException e) {
 //        return StandardError.builder()
@@ -60,4 +71,4 @@ public class RestExceptionHandler {
 //                .message(NECESSARIO_USER_PARA_SALVAR)
 //                .build();
 //    }
-}
+//}
